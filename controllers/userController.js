@@ -18,7 +18,10 @@ export const postLogin = (req, res) => {
   console.log(req.body);
   res.redirect(routes.home);
 };
-export const logout = (req, res) => res.render('logout', { pageTitle: 'Logout' });
+export const logout = (req, res) => {
+  // TODO: Process logout
+  res.redirect(routes.home);
+};
 export const usersDetail = (req, res) => res.render('userDetail', { pageTitle: 'User Detail' });
 export const editProfile = (req, res) => res.render('editProfile', { pageTitle: 'Edit Profile' });
 export const changePassword = (req, res) => res.render('changePassword', { pageTitle: 'Change Password' });
