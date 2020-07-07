@@ -32,7 +32,7 @@ const routes = {
   upload: UPLOAD,
   videoDetail: (id) => (id ? `${routes.videos}/${id}` : VIDEO_DETAIL),
   editVideo: (id) => (id ? `${routes.videos}/${id}/edit` : EDIT_VIDEO),
-  deleteVideo: DELETE_VIDEO
+  deleteVideo: (id) => (id ? `${routes.videos}/${id}/delete` : DELETE_VIDEO)
 };
 
 export default routes;
