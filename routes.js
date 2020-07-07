@@ -31,7 +31,7 @@ const routes = {
   videos: VIDEOS,
   upload: UPLOAD,
   videoDetail: (id) => (id ? `${routes.videos}/${id}` : VIDEO_DETAIL),
-  editVideo: EDIT_VIDEO,
+  editVideo: (id) => (id ? `${routes.videos}/${id}/edit` : EDIT_VIDEO),
   deleteVideo: DELETE_VIDEO
 };
 
