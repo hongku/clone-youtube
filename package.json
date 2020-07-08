@@ -4,7 +4,19 @@
   "description": "Cloning Youtube with NodeJS ",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node init.js --delay 2"
+    "start": "nodemon --exec babel-node init.js --delay 2",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -24,6 +36,8 @@
   "devDependencies": {
     "@babel/preset-env": "^7.10.3",
     "eslint": "^7.4.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "nodemon": "^2.0.4"
   }
 }
