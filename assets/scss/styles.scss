@@ -1,5 +1,11 @@
-@import 'config/variables';
+@import 'config/_variables';
+@import 'config/reset';
+@import 'main';
+@import 'partials/header';
+@import 'partials/footer';
+@import 'partials/form';
+@import 'partials/socialLogin';
+@import 'partials/videoBlock';
 
-body {
-  background-color: $bgColor;
-}
+@import 'pages/home';
+@import 'pages/videoDetail';

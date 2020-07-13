@@ -117,4 +117,4 @@ dist
 
 package-lock.json
 .prettierignore
-.static
+static/
