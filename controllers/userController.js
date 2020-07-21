@@ -33,7 +33,7 @@ export const githubLogin = passport.authenticate('github');
 
 export const githubLoginCallback = async (_accessToken, _refreshToken, profile, cb) => {
   const {
-    _json: { id, name, avatar_url, email }
+    _json: { id, name, email, avatar_url: avatarUrl }
   } = profile;
 
   try {
@@ -47,7 +47,7 @@ export const githubLoginCallback = async (_accessToken, _refreshToken, profile, 
     const newUser = await User.create({
       name,
       email,
-      avatarUrl: avatar_url,
+      avatarUrl,
       githubId: id
     });
     return cb(null, newUser);
@@ -64,6 +64,19 @@ export const logout = (req, res) => {
   req.logout();
   res.redirect(routes.home);
 };
-export const usersDetail = (req, res) => res.render('userDetail', { pageTitle: 'User Detail' });
+export const getMe = (req, res) => {
+  res.render('userDetail', { pageTitle: 'User Detail', user: req.user });
+};
+export const usersDetail = async (req, res) => {
+  const {
+    params: { id }
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render('userDetail', { pageTitle: 'User Detail', user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 export const editProfile = (req, res) => res.render('editProfile', { pageTitle: 'Edit Profile' });
 export const changePassword = (req, res) => res.render('changePassword', { pageTitle: 'Change Password' });

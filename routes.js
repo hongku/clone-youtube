@@ -10,6 +10,7 @@ const USERS = '/users';
 const USER_DETAIL = '/:id';
 const EDIT_PROFILE = '/edit-profile';
 const CHANGE_PASSWORD = '/change-password';
+const ME = '/me';
 
 // Videos
 const VIDEOS = '/videos';
@@ -38,7 +39,8 @@ const routes = {
   editVideo: (id) => (id ? `${routes.videos}/${id}/edit` : EDIT_VIDEO),
   deleteVideo: (id) => (id ? `${routes.videos}/${id}/delete` : DELETE_VIDEO),
   github: GITHUB,
-  githubCallback: GITHUB_CALLBACK
+  githubCallback: GITHUB_CALLBACK,
+  me: ME
 };
 
 export default routes;
