@@ -1,4 +1,6 @@
+import '@babel/polyfill';
 import express from 'express';
+import path from 'path';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';
@@ -21,9 +23,9 @@ const app = express();
 const CookieStore = MongoStore(session);
 
 app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 app.use(helmet());
-app.use('/static', express.static('static'));
-app.use('/uploads', express.static('uploads'));
+app.use('/static', express.static(path.join(__dirname, 'static')));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

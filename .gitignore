@@ -117,5 +117,6 @@ dist
 
 package-lock.json
 .prettierignore
-static/
-uploads/
+src/static
+src/uploads
+build
