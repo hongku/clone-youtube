@@ -6,12 +6,14 @@ import routes from './routes';
 
 passport.use(User.createStrategy());
 
+const callbackHost = process.env.PRODUCTION ? 'https://still-sea-64555.herokuapp.com' : 'http://localhost:4000';
+
 passport.use(
   new GithubStrategy(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_SECRET,
-      callbackURL: `http://localhost:4000${routes.githubCallback}`
+      callbackURL: `${callbackHost}${routes.githubCallback}`
     },
     githubLoginCallback
   )
