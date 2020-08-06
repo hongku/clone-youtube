@@ -32,6 +32,7 @@
     "@babel/core": "^7.10.3",
     "@babel/node": "^7.10.3",
     "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.10.3",
     "autoprefixer": "^9.8.5",
     "aws-sdk": "^2.726.0",
     "axios": "^0.19.2",
@@ -62,7 +63,6 @@
     "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.10.3",
     "eslint": "^7.4.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
